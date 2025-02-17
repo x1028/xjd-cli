@@ -2,14 +2,14 @@
   "name": "xjd-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "./lib/index.js",
   "scripts": {
     "build:comment": "构建",
     "build": "npm run eslint && npm run prettier && rm -rf lib && tsc --build",
     "dev:comment": "启动开发环境",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "eslint:comment": "使用 ESLint 检查并自动修复 src 目录下所有扩展名为 .ts 的文件",
-    "eslint": "eslint --fix src --ext .ts --max-warnings=0",
+    "eslint": "eslint --fix src/**/*.ts",
     "prettier:comment": "自动格式化 src 目录下的所有 .ts 文件",
     "prettier": "prettier --write \"src/**/*.ts\"",
     "commit:comment": "引导设置规范化的提交信息",
@@ -31,6 +31,9 @@
     "@commitlint/cli": "^19.7.1",
     "@commitlint/config-conventional": "^19.7.1",
     "@eslint/js": "^9.20.0",
+    "@types/node": "^22.13.4",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.20.1",
     "globals": "^15.15.0",
@@ -45,5 +48,15 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "clear-console": "^1.1.0",
+    "commander": "^13.1.0",
+    "inquirer": "^12.4.2",
+    "shelljs": "^0.8.5"
+  },
+  "bin": {
+    "ts-cli": "./bin/ts-cli.js"
   }
 }

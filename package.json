@@ -15,6 +15,7 @@
     "commit:comment": "引导设置规范化的提交信息",
     "commit": "cz"
   },
+  "files": ["package.json", "lib", "README.md"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/x1028/xjd-cli.git"
